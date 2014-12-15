@@ -93,10 +93,10 @@ for s=1:1:size(zoneChangeP,2)
     for t=1:1:size(subzone,1)-1
         if POS_TRA_ID(s,1)==1
             TRANSITIONP(subzone(t,1),subzone(t+1,1)) = TRANSITIONP(subzone(t,1),subzone(t+1,1)) + 1;
-            DELTAP(max(find(quan<=subtime(t,1))),subzone(t,1),subzone(t+1,1)) = DELTAP(max(find(quan<=subtime(t,1))),subzone(t,1),subzone(t+1,1))+1;
+            DELTAP(subzone(t,1),subzone(t+1,1),max(find(quan<=subtime(t,1)))) = DELTAP(subzone(t,1),subzone(t+1,1),max(find(quan<=subtime(t,1))))+1;
         else
             TRANSITIONN(subzone(t,1),subzone(t+1,1)) = TRANSITIONN(subzone(t,1),subzone(t+1,1)) + 1;
-            DELTAN(max(find(quan<=subtime(t,1))),subzone(t,1),subzone(t+1,1)) = DELTAN(max(find(quan<=subtime(t,1))),subzone(t,1),subzone(t+1,1))+1;
+            DELTAN(subzone(t,1),subzone(t+1,1),max(find(quan<=subtime(t,1)))) = DELTAN(subzone(t,1),subzone(t+1,1),max(find(quan<=subtime(t,1))))+1;
         end
     end
     clearvars subzone subtime
