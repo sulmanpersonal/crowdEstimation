@@ -4,3 +4,4 @@ save('TRANSITIONN.mat','TRANSITIONN');
 save('DELTAN.mat','DELTAN');
 save('DELTAP.mat','DELTAP');
 save('quan.mat','quan');
+save('countPositives.mat','countPositives');

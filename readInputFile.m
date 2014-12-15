@@ -56,7 +56,10 @@ for s=min(IDx):1:max(IDx)
     x = Xi(index);
     y = Yi(index);
     if(max(x)>=-0.6 && max(x)<=5.4 && max(y)>=15 && max(y)<=20)
+        countPositives(1,1) = countPositives(1,1)+1;
         POS_TRA_ID(s,1) = 1;
+    else
+        countPositives(1,2) = countPositives(1,2)+1;
     end
     for t=1:1:size(index,1)
         xi=Xi(index(t));
