@@ -26,7 +26,7 @@ time = time(sort(index));
 clearvars s xi yi index id
 
 %%
-neighbor = findNeighbours(zones(3,1),ZONE);
+neighbor = findNeighbours(zones(1,1),ZONE);
 for s=1:1:8
     if neighbor(s,1)~=0
        neighbor(s,2)= TRANSITIONPnorm(zones(1,1),neighbor(s,1));
