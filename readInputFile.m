@@ -97,14 +97,22 @@ for s=1:1:size(zoneChangeP,2)
         if POS_TRA_ID(s,1)==1
             TRANSITIONP(subzone(t,1),subzone(t+1,1)) = TRANSITIONP(subzone(t,1),subzone(t+1,1)) + 1;
             DELTAP(subzone(t,1),subzone(t+1,1),max(find(quan<=subtime(t,1)))) = DELTAP(subzone(t,1),subzone(t+1,1),max(find(quan<=subtime(t,1))))+1;
+            a = find(zone0(:,1) == subzone(t,1));
+            if ~isempty(a)
+                zone0(a,2) = zone0(a,2)+1;
+            end
         else
             TRANSITIONN(subzone(t,1),subzone(t+1,1)) = TRANSITIONN(subzone(t,1),subzone(t+1,1)) + 1;
             DELTAN(subzone(t,1),subzone(t+1,1),max(find(quan<=subtime(t,1)))) = DELTAN(subzone(t,1),subzone(t+1,1),max(find(quan<=subtime(t,1))))+1;
+            a = find(zone0(:,1) == subzone(t,1));
+            if ~isempty(a)
+                zone0(a,3) = zone0(a,3)+1;
+            end
         end
     end
     clearvars subzone subtime
 end
-clearvars s t
+clearvars s t a
 
 %%
 % for i = min(IDx):max(IDx)
