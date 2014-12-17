@@ -55,6 +55,6 @@ clearvars pk ans p0 maximum s Prob Neighbor ans1 maximum x t zones time
 showAllTrajectories('C:\Users\sulman.baig\Documents\DATA\50-100\20130510T101303.dat')
 %showMap
 hold on
-plot(ZONE(result(:,1),1)+0.3,ZONE(result(:,1),2)+1.2,'c*','color',[0.5,0.5,0.5],'MarkerSize',20);
+plot(ZONE(result(:,1),1)+0.3,ZONE(result(:,1),2)+1.2,'LineSpec','color',[1,1,1],'MarkerSize',10);
 plot(ZONE(result(:,2),1)+0.3,ZONE(result(:,2),2)+1.2,'LineWidth',3,'color',[1,0,0]);
 hold off
