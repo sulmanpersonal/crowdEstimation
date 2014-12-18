@@ -35,21 +35,26 @@ p0 = zone0(find(zone0(:,1)==75),2)/ans(1,2);
 ans1 = diff(time,1);
 maximum = max(Prob,[],1);
 x = find(Prob(:,max(find(quan<=ans1(1,1))))==maximum(1,max(find(quan<=ans1(1,1)))));
+y = Prob(x,max(find(quan<=ans1(1,1))));
 result(1,1) = Neighbor(x,1);
 result(1,2) = zones(2,1);
 for s=2:1:size(ans1,1)
-    [Prob,Neighbor] = ProbFunc1(result(s-1,2),Prob(find(Neighbor==result(s-1,2)),max(find(quan<=ans1(s-1,1)))),TRANSITIONPnorm,DELTAPnorm);
+    %y = Prob(find(Neighbor==result(s-1,1)),max(find(quan<=ans1(s-1,1))));
+    [Prob,Neighbor] = ProbFunc1(result(s-1,2),y,TRANSITIONPnorm,DELTAPnorm);
     maximum = max(Prob,[],1);
-    x = find(Prob(:,max(find(quan<=ans1(s,1))))==maximum(1,max(find(quan<=ans1(s,1)))));
+    a = max(find(quan<=ans1(s,1)));
+    x = find(Prob(:,a)==maximum(1,a));
     t = 1;
     while size(x,1)>1
-        x = find(Prob(:,max(find(quan<=ans1(s-t,1))))==maximum(1,max(find(quan<=ans1(s-t,1)))));
+        a = max(find(quan<=ans1(s-t,1)));
+        x = find(Prob(:,a)==maximum(1,a));
         t = t+1;
     end
     result(s,1) = Neighbor(x,1);
     result(s,2) = zones(s+1,1);
+    y = Prob(x,a);
 end
-clearvars pk ans p0 maximum s Prob Neighbor ans1 maximum x t zones time
+clearvars pk ans p0 maximum s Prob Neighbor ans1 maximum x t zones time y a
 
 %%
 showAllTrajectories('C:\Users\sulman.baig\Documents\DATA\50-100\20130510T101303.dat')
