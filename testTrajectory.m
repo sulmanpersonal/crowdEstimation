@@ -3,7 +3,7 @@ clc
 loadFiles
 normalizeMatrices
 readFileTest
-index = find(IDx == 82);
+index = find(IDx == 65);
 id = IDx(index);
 time = TimeStamp(index);
 xi = Xi(index);
@@ -30,8 +30,8 @@ clearvars s xi yi index id
 result = 0;
 pk = countPositives(1,1)/(countPositives(1,1)+countPositives(1,2));
 ans = sum(zone0,1);
-p0 = zone0(find(zone0(:,1)==75),2)/ans(1,2);
-[Prob,Neighbor] = ProbFunc1(75,p0*pk,TRANSITIONPnorm,DELTAPnorm);
+p0 = zone0(find(zone0(:,1)==45),2)/ans(1,2);
+[Prob,Neighbor] = ProbFunc1(45,p0*pk,TRANSITIONPnorm,DELTAPnorm);
 ans1 = diff(time,1);
 maximum = max(Prob,[],1);
 x = find(Prob(:,max(find(quan<=ans1(1,1))))==maximum(1,max(find(quan<=ans1(1,1)))));

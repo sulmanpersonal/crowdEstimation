@@ -3,7 +3,7 @@ clc
 loadFiles
 normalizeMatrices
 readFileTest
-index = find(IDx == 82);
+index = find(IDx == 65);
 id = IDx(index);
 time = TimeStamp(index);
 xi = Xi(index);
@@ -49,14 +49,17 @@ for i =j:length(xi)
     estimatedZone = Neighbor(x(1,1),1);
    
     plot(xi(i),yi(i),'*')
-    s = num2str(zoneNumber);
-    s = strcat(s,',');
-    s = strcat(s,num2str(estimatedZone));
+    s = 'Z: ';
+    s = strcat(s,num2str(zoneNumber));
+    r = 'EZ: ';
+    r = strcat(r,num2str(estimatedZone));
     h = text(xi(i)+0.15,yi(i)+0.5,s,'BackgroundColor',[.7 .9 .7],'FontSize',14);
+    g = text(xi(i)-0.7,yi(i)+0.5,r,'BackgroundColor',[.5 .5 .9],'FontSize',14);
    %hold on %%%
    
     pause(0.001)
     delete(h);
+    delete(g);
    %hold off
 end
 hold off
