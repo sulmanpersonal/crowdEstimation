@@ -1,3 +1,10 @@
+%% findZone finds the zone of given x and y values
+% @params:  x => x value of point of trajectory
+%           y => y value of point of trajectory
+%           ZONE => ZONE array having data of all zones of arena with 4
+%           points of rectangular zone
+% @return:  ZoneNumber => a number containing the number of zone where x
+%           and y values reside. 
 function ZoneNumber = findZone(x,y,ZONE)
     ZoneNumber = 0;
     for s = 1:1:183
